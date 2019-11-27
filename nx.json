@@ -1,0 +1,24 @@
+{
+  "npmScope": "brady-bungalow",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "brady-bungalow-e2e": {
+      "tags": []
+    },
+    "brady-bungalow": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
