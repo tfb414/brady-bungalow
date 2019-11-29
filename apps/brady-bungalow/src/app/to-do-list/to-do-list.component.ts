@@ -27,25 +27,6 @@ export class ToDoListComponent {
   public thingsToDo = [];
   public ngrxToDos;
 
-  addThingToDo = new FormControl();
-
-  onKeyUp(event: KeyboardEvent) {
-    if (event.keyCode === 13) {
-      this.addToDoSubmit();
-    }
-  }
-
-  addToDoSubmit() {
-    const uuid = uuidv4();
-    const newToDo: ToDo = {
-      id: uuid,
-      description: this.addThingToDo.value,
-      complete: false
-    };
-    this.clearInput();
-    this.store.dispatch(AddToDoAction(newToDo));
-  }
-
   toggleCompletedToDo(id) {
     const currentCompleteStatus = this.thingsToDo.find(toDo => toDo.id === id)
       .complete;
@@ -56,9 +37,5 @@ export class ToDoListComponent {
         complete: !currentCompleteStatus
       })
     );
-  }
-
-  private clearInput() {
-    this.addThingToDo.setValue('');
   }
 }

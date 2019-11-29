@@ -1,6 +1,3 @@
-<div>To Do List</div>
-<input type="text" [formControl]="addThingToDo" (keyup)="onKeyUp($event)" />
-<button (click)="addToDoSubmit()">Add</button>
 <div *ngFor="let thingToDo of thingsToDo | keyvalue">
   <div>
     <input

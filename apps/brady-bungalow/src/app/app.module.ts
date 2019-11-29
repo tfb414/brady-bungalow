@@ -10,9 +10,11 @@ import { Actions, EffectSources } from '@ngrx/effects';
 import * as fromToDos from './+state/to-dos.reducer';
 import { DataPersistence } from '@nrwl/angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ToDoListAddFormComponent } from './to-do-list-add-form/to-do-list-add-form.component';
+import { ToDosComponent } from './to-dos/to-dos.component';
 
 @NgModule({
-  declarations: [AppComponent, ToDoListComponent],
+  declarations: [AppComponent, ToDoListComponent, ToDoListAddFormComponent, ToDosComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
