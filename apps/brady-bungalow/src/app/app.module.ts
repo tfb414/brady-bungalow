@@ -17,6 +17,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ToDosComponent } from './to-dos/to-dos.component';
 import { firebaseConfig } from '../assets/firebase-config';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { TestComponent } from './test/test.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { firebaseConfig } from '../assets/firebase-config';
     ToDoListComponent,
     ToDoListAddFormComponent,
     ToDosComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    TestComponent,
+    PageNotFoundComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +45,10 @@ import { firebaseConfig } from '../assets/firebase-config';
     }),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AppRoutingModule
   ],
-  providers: [ReducerManager, Actions, DataPersistence, EffectSources],
+  providers: [ReducerManager, Actions, DataPersistence, EffectSources, AngularFireAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

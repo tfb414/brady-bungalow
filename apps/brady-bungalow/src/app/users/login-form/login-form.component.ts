@@ -4,16 +4,8 @@ import { auth } from 'firebase/app';
 
 @Component({
   selector: 'brady-bungalow-login-form',
-  template: `
-    <div *ngIf="afAuth.user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <p>Please login.</p>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
-  `
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
   constructor(public afAuth: AngularFireAuth) {}

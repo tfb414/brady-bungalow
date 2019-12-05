@@ -1,23 +1,11 @@
-<form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
-  <h3>New User Signup</h3>
-  <p (click)="toggleForm()">Already Registered?</p>
-  <hr />
-
-  <label for="email">Email</label>
-  <input type="email" formControlName="email" required />
-
-  <div *ngIf="formErrors.email">
-    {{ formErrors.email }}
-  </div>
-
-  <label for="password">Password</label>
-  <input type="password" formControlName="password" required />
-
-  <div *ngIf="formErrors.password">
-    {{ formErrors.password }}
-  </div>
-
-  <button type="submit" [disabled]="!userForm.valid">Submit</button>
-
-  <span *ngIf="userForm.valid">Form is valid</span>
-</form>
+<head>
+  <base href="login">
+</head>
+<div *ngIf="this.afAuth.user | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="this.logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="this.login()">Login with Google</button>
+</ng-template>
